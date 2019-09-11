@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+<servlet>
+<servlet-name>Dis</servlet-name>
+<servlet-class>test.Display</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>Dis</servlet-name>
+<url-pattern>/ulogin</url-pattern>
+</servlet-mapping>
+
+
+</web-app>

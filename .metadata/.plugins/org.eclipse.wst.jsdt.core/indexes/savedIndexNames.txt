@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\admin\Downloads\FF20\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3905863393.index
+2292732657.index
+838772508.index
+1591190232.index
+147625986.index
+678596932.index

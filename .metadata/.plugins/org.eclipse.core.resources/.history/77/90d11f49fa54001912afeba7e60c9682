@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+<servlet>
+<servlet-name>Unilog</servlet-name>
+<servlet-class>com.benz.demo.Ulogin</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>Unilog</servlet-name>
+<url-pattern>/ulogin</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>Ulog</servlet-name>
+<servlet-class>com.benz.demo.Unilogin</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>Ulog</servlet-name>
+<url-pattern>/ulog</url-pattern>
+</servlet-mapping>
+
+</web-app>

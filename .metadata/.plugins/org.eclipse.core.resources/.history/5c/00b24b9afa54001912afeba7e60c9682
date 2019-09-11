@@ -1,0 +1,11 @@
+package com.benz.demo;
+
+public class Snippet {
+	public static void main(String[] args) {
+		<servlet>
+		<servlet-name>Unilog</servlet-name>
+		<servlet-class>com.benz.demo.Ulogin</servlet-class>
+		</servlet>
+	}
+}
+

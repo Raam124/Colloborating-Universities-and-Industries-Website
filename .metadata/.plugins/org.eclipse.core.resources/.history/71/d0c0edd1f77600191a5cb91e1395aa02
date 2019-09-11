@@ -1,0 +1,77 @@
+package com.benz.demo;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class EventDAO extends HttpServlet{
+
+	public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException
+	{
+	Event eve = new Event();
+	 eve.setReg_no(Integer.parseInt(req.getParameter("rno")));
+	 
+	 eve.setOrga_name(req.getParameter("orga_name"));
+	 
+	 eve.setEvent_name(req.getParameter("ename"));
+	 
+	 SimpleDateFormat format= new SimpleDateFormat("dd-MM-yyyy");
+	 try {
+		format.parse(req.getParameter("edate"));
+	} catch (ParseException e) {
+		e.printStackTrace();
+	}
+	 try {
+		eve.setDate(format.parse(req.getParameter("edate")));
+	} catch (ParseException e) {
+		e.printStackTrace();
+	}
+	 
+	 eve.setDetails(req.getParameter("edetail"));
+	 //byte[] img = req.getParameter("photo").getBytes();
+	 eve.setPhoto(req.getParameter("photo"));
+	 
+	 eve.setUni(req.getParameter("txtUni"));
+
+      if(insert(eve))
+      res.sendRedirect("Industry.jsp");
+      else
+    	  res.sendRedirect("Events.jsp");
+
+	}
+	public boolean insert(Event ev)
+	{
+		Configuration cfg = new Configuration();
+		cfg = cfg.configure("com/benz/cfgs/hibernate.cfg.xml");
+		
+		SessionFactory factory = cfg.buildSessionFactory();
+		
+		Session ses = null;
+		
+         ses = factory.openSession();
+         Transaction tran=null;
+         
+         try {
+        	 tran = ses.beginTransaction();
+        	 ses.save(ev);
+        	 tran.commit();
+        	 return true;
+         }catch(Exception ex)
+         {
+        	 tran.rollback();
+        	 return false;
+        	 
+         }
+        
+         
+         
+	}
+}

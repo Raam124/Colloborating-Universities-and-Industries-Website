@@ -1,0 +1,12 @@
+package test;
+import javax.servlet.http.*;
+import java.io.*;
+
+public class Display extends HttpServlet{
+	
+	public void doPost(HttpServletRequest req,HttpServletResponse res)throws IOException
+	{
+		res.sendRedirect("NewFile.jsp");
+	}
+
+}
